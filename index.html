@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .banner {
+            height: 300px;
+            background-image: url("R.gif");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner h1 {
+            color: white;
+            font-size: 48px;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        .box {
+            border-radius: 20px; /* 圆角 */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            font-size: 18px;
+        }
+
+        .qrcode {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .qrcode img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .footer {
+            background-color: #f0f0f0; /* 珍珠灰色 */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="banner">
+            <h1>AI之声</h1>
+			<p><br>WHBC Debate Society × CS社</p>
+        </div>
+        <div class="content">
+            <div class="box" style="background-color:#F5D9D9;"> <!-- 珊瑚色 -->
+                <h2>辩题</h2>
+                <p>The development of artificial intelligence benefits society</p>
+            </div>
+            <div class="box" style="background-color:#F7EED6;"> <!-- 香槟色 -->
+                <h2>比赛类型</h2>
+                <p>公共论坛式辩论</p>
+            </div>
+            <div class="box" style="background-color:#E6E6FA;"> <!-- 白雪兰色 -->
+                <h2>参赛范围</h2>
+                <p>高一～高三</p>
+            </div>
+            <div class="box" style="background-color:#FFC1C1;"> <!-- 鲑鱼色 -->
+                <h2>比赛时间</h2>
+                <p>11月中旬</p>
+            </div>
+        </div>
+        <div class="qrcode">
+            <img src="qrcode.png" alt="这里应该有个二维码">
+        </div>
+        <div class="footer">
+            <p>本网页由Weifeng Wang制作，版权所有 © 2023</p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
