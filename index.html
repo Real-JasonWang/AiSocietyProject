@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,8 +40,9 @@
         }
 
         .box {
-            border-radius: 20px; /* 圆角 */
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            /* 圆角 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             transition: transform 0.3s ease-in-out;
         }
@@ -71,7 +73,8 @@
         }
 
         .footer {
-            background-color: #f0f0f0; /* 珍珠灰色 */
+            background-color: #f0f0f0;
+            /* 珍珠灰色 */
             padding: 20px;
             text-align: center;
         }
@@ -81,26 +84,32 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="banner">
             <h1>AI之声</h1>
-			<p><br>WHBC Debate Society × CS社</p>
+            <p>
+                <br>WHBC Debate Society × CS社</p>
         </div>
         <div class="content">
-            <div class="box" style="background-color:#F5D9D9;"> <!-- 珊瑚色 -->
+            <div class="box" style="background-color:#F5D9D9;">
+                <!-- 珊瑚色 -->
                 <h2>辩题</h2>
                 <p>The development of artificial intelligence benefits society</p>
             </div>
-            <div class="box" style="background-color:#F7EED6;"> <!-- 香槟色 -->
+            <div class="box" style="background-color:#F7EED6;">
+                <!-- 香槟色 -->
                 <h2>比赛类型</h2>
                 <p>公共论坛式辩论</p>
             </div>
-            <div class="box" style="background-color:#E6E6FA;"> <!-- 白雪兰色 -->
+            <div class="box" style="background-color:#E6E6FA;">
+                <!-- 白雪兰色 -->
                 <h2>参赛范围</h2>
                 <p>高一～高三</p>
             </div>
-            <div class="box" style="background-color:#FFC1C1;"> <!-- 鲑鱼色 -->
+            <div class="box" style="background-color:#FFC1C1;">
+                <!-- 鲑鱼色 -->
                 <h2>比赛时间</h2>
                 <p>11月中旬</p>
             </div>
@@ -113,7 +122,73 @@
         </div>
     </div>
 </body>
+<script>
+    function click(e) {
+        if (document.all) {
+            if (event.button == 2 || event.button == 3) {
+                alert("Pls don't peek at my code, do your own!");
+                oncontextmenu = 'return false';
+            }
+        }
+        if (document.layers) {
+            if (e.which == 3) {
+                oncontextmenu = 'return false';
+            }
+        }
+    }
+    if (document.layers) {
+        document.captureEvents(Event.MOUSEDOWN);
+    }
+    document.onmousedown = click;
+    document.oncontextmenu = new Function("return false;")
+
+    document.onkeydown = document.onkeyup = document.onkeypress = function() {
+        if (window.event.keyCode == 123) {
+			alert("Pls don't peek at my code, do your own!");
+            window.event.returnValue = false;
+            return (false);
+        }
+    }
+
+    (function() {
+        var a_idx = 0;
+        window.onclick = function(event) {
+            var a = new Array("Weifeng Wang","制作");
+
+            var heart = document.createElement("b");
+            heart.onselectstart = new Function('event.returnValue=false');
+
+            document.body.appendChild(heart).innerHTML = a[a_idx];
+            a_idx = (a_idx + 1) % a.length;
+            heart.style.cssText = "position: fixed;left:-100%;";
+
+            var f = 16,
+                x = event.clientX - f / 2,
+                y = event.clientY - f,
+                c = randomColor(),
+                a = 1,
+                s = 1.2;
+
+            var timer = setInterval(function() {
+                if (a <= 0) {
+                    document.body.removeChild(heart);
+                    clearInterval(timer);
+                } else {
+                    heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                        c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                        s + ");";
+                    y--;
+                    a -= 0.016;
+                    s += 0.002;
+                }
+            }, 15)
+        }
+
+        function randomColor() {
+            return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+                .random() * 255)) + ")";
+        }
+    }());
+</script>
+
 </html>
-
-
-
