@@ -1,194 +1,221 @@
 <!doctype html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .banner {
-            height: 300px;
-            background-image: url("R.gif");
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .banner h1 {
-            color: white;
-            font-size: 48px;
-            text-shadow: 2px 2px 4px black;
-        }
-
-        .content {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 20px;
-            padding: 20px;
-        }
-
-        .box {
-            border-radius: 20px;
-            /* 圆角 */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .box:hover {
-            transform: scale(1.05);
-        }
-
-        .box h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .box p {
-            font-size: 18px;
-        }
-
-        .qrcode {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .qrcode img {
-            width: 150px;
-            height: 150px;
-        }
-
-        .footer {
-            background-color: #f0f0f0;
-            /* 珍珠灰色 */
-            padding: 20px;
-            text-align: center;
-        }
-
-        .footer p {
-            font-size: 16px;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <div class="banner">
-            <h1>AI之声</h1>
-            <p>
-                <br>WHBC Debate Society × CS社</p>
-        </div>
-        <div class="content">
-            <div class="box" style="background-color:#F5D9D9;">
-                <!-- 珊瑚色 -->
-                <h2>辩题</h2>
-                <p>The development of artificial intelligence benefits society</p>
-            </div>
-            <div class="box" style="background-color:#F7EED6;">
-                <!-- 香槟色 -->
-                <h2>比赛类型</h2>
-                <p>公共论坛式辩论</p>
-            </div>
-            <div class="box" style="background-color:#E6E6FA;">
-                <!-- 白雪兰色 -->
-                <h2>参赛范围</h2>
-                <p>高一～高三</p>
-            </div>
-            <div class="box" style="background-color:#FFC1C1;">
-                <!-- 鲑鱼色 -->
-                <h2>比赛时间</h2>
-                <p>11月中旬</p>
-            </div>
-        </div>
-        <div class="qrcode">
-            <img src="qrcode.png" alt="这里应该有个二维码">
-        </div>
-        <div class="footer">
-            <p>本网页由Weifeng Wang制作，版权所有 © 2023</p>
-        </div>
-    </div>
-</body>
-<script>
-    function click(e) {
-        if (document.all) {
-            if (event.button == 2 || event.button == 3) {
-                alert("Pls don't peek at my code, do your own!");
-                oncontextmenu = 'return false';
-            }
-        }
-        if (document.layers) {
-            if (e.which == 3) {
-                oncontextmenu = 'return false';
-            }
-        }
-    }
-    if (document.layers) {
-        document.captureEvents(Event.MOUSEDOWN);
-    }
-    document.onmousedown = click;
-    document.oncontextmenu = new Function("return false;")
-
-    document.onkeydown = document.onkeyup = document.onkeypress = function() {
-        if (window.event.keyCode == 123) {
-			alert("Pls don't peek at my code, do your own!");
-            window.event.returnValue = false;
-            return (false);
-        }
-    }
-
-    (function() {
-        var a_idx = 0;
-        window.onclick = function(event) {
-            var a = new Array("Weifeng Wang","制作");
-
-            var heart = document.createElement("b");
-            heart.onselectstart = new Function('event.returnValue=false');
-
-            document.body.appendChild(heart).innerHTML = a[a_idx];
-            a_idx = (a_idx + 1) % a.length;
-            heart.style.cssText = "position: fixed;left:-100%;";
-
-            var f = 16,
-                x = event.clientX - f / 2,
-                y = event.clientY - f,
-                c = randomColor(),
-                a = 1,
-                s = 1.2;
-
-            var timer = setInterval(function() {
-                if (a <= 0) {
-                    document.body.removeChild(heart);
-                    clearInterval(timer);
-                } else {
-                    heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
-                        c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
-                        s + ");";
-                    y--;
-                    a -= 0.016;
-                    s += 0.002;
-                }
-            }, 15)
-        }
-
-        function randomColor() {
-            return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
-                .random() * 255)) + ")";
-        }
-    }());
-</script>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			  content="width=device-width, initial-scale=1.0">
+		<style>
+			* {
+			            margin: 0;
+			            padding: 0;
+			            box-sizing: border-box;
+			        }
+			
+			        body {
+			            background-image: url("background.jpg");
+			            background-size: cover;
+			            background-attachment: fixed;
+			        }
+			
+			        .container {
+			            width: 100%;
+			            height: 100vh;
+			            overflow-y: scroll;
+			        }
+			
+			        .section {
+			            width: 100%;
+			            height: 100vh;
+			            position: relative;
+			        }
+			
+			        .box {
+			            width: 50%;
+			            height: 20%;
+			            position: absolute;
+			            top: 10%;
+			            background-color: rgba(255, 255, 255, 0.8);
+			            border-radius: 10px;
+			            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			            display: flex;
+			            align-items: center;
+			            justify-content: center;
+						backdrop-filter : blur(5px);
+			        }
+			
+			        .box-left {
+			            left: -1%;
+			            transform: skewX(-10deg);
+			        }
+			
+			        .box-right {
+			            right: -1%;
+			            transform: skewX(10deg);
+			        }
+			
+			        .box-content {
+			            font-size: 130%;
+			            font-weight: bold;
+			        }
+			
+			        .qr-box {
+			            width: 30%;
+			            height: 30%;
+			            position: absolute;
+			            bottom: 10%;
+			            left: 35%;
+			            background-color: rgba(255, 255, 255, 0.8);
+			            border-radius: 10px;
+			            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			            display: flex;
+			            flex-direction: column;
+			            align-items: center;
+						backdrop-filter : blur(5px);
+			        }
+			
+			        .qr-code {
+			            width: auto;
+			            height: auto;
+						border-radius: 10px;
+			        }
+			
+			        .title-box {
+			          width: 100%;
+			          height: 50%;
+			          position:absolute;
+			          top :20%;
+			          background-color : rgba(255,255,255,0.8);
+			          backdrop-filter : blur(5px);
+			          display : flex;
+			          flex-direction : column;
+			          align-items : center;
+			
+			        }
+			        
+			        .footer {
+			          width :100%;
+			          height :50px;
+			          position : fixed;
+			          bottom :0;
+			          background-color : rgba(255,255,255,0.8);
+						backdrop-filter : blur(5px);
+			          display : flex;
+			          align-items : center;
+			          justify-content : center;
+			
+			        }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="section">
+				<div class="title-box">
+					<h1 style="text-align:center; color:black; margin-top:auto; font-size: 100px">AI之声</h1>
+					<h2 style="text-align:center; color:black; margin-bottom:auto;">WHBC Debate Society × CS社</h2>
+				</div>
+			</div>
+			<div class="section">
+				<div class="box box-left">
+					<div class="box-content">辩题：
+						<br>The development of AI benefits society</div>
+				</div>
+			</div>
+			<div class="section">
+				<div class="box box-right">
+					<div class="box-content">比赛类型：
+						<br>公共论坛式辩论</div>
+				</div>
+			</div>
+			<div class="section">
+				<div class="box box-left">
+					<div class="box-content">参赛范围：
+						<br>高一 ～ 高三</div>
+				</div>
+			</div>
+			<div class="section">
+				<div class="box box-right">
+					<div class="box-content">比赛时间：
+						<br>11月中旬</div>
+				</div>
+				<div class="qr-box">
+					<p style="font-size :18px; font-weight:bold;">扫码报名比赛↓</p>
+					<img src="qrcode1.png"
+						 alt="This is supposed to be a qrcode"
+						 class="qr-code">
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			&copy;2023 Design by Weifeng Wang. All rights reserved.
+		</div>
+	</body>
+	<script>
+		function click(e) {
+		        if (document.all) {
+		            if (event.button == 2 || event.button == 3) {
+		                alert("Pls don't peek at my code, do your own!");
+		                oncontextmenu = 'return false';
+		            }
+		        }
+		        if (document.layers) {
+		            if (e.which == 3) {
+		                oncontextmenu = 'return false';
+		            }
+		        }
+		    }
+		    if (document.layers) {
+		        document.captureEvents(Event.MOUSEDOWN);
+		    }
+		    document.onmousedown = click;
+		    document.oncontextmenu = new Function("return false;")
+		
+		    document.onkeydown = document.onkeyup = document.onkeypress = function() {
+		        if (window.event.keyCode == 123) {
+					alert("Pls don't peek at my code, do your own!");
+		            window.event.returnValue = false;
+		            return (false);
+		        }
+		    }
+		
+		    (function() {
+		        var a_idx = 0;
+		        window.onclick = function(event) {
+		            var a = new Array("Weifeng Wang","制作");
+		
+		            var heart = document.createElement("b");
+		            heart.onselectstart = new Function('event.returnValue=false');
+		
+		            document.body.appendChild(heart).innerHTML = a[a_idx];
+		            a_idx = (a_idx + 1) % a.length;
+		            heart.style.cssText = "position: fixed;left:-100%;";
+		
+		            var f = 16,
+		                x = event.clientX - f / 2,
+		                y = event.clientY - f,
+		                c = randomColor(),
+		                a = 1,
+		                s = 1.2;
+		
+		            var timer = setInterval(function() {
+		                if (a <= 0) {
+		                    document.body.removeChild(heart);
+		                    clearInterval(timer);
+		                } else {
+		                    heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+		                        c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+		                        s + ");";
+		                    y--;
+		                    a -= 0.016;
+		                    s += 0.002;
+		                }
+		            }, 15)
+		        }
+		
+		        function randomColor() {
+		            return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+		                .random() * 255)) + ")";
+		        }
+		    }());
+	</script>
 
 </html>
