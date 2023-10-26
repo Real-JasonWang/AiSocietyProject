@@ -1,221 +1,227 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport"
-			  content="width=device-width, initial-scale=1.0">
-		<style>
-			* {
-			            margin: 0;
-			            padding: 0;
-			            box-sizing: border-box;
-			        }
-			
-			        body {
-			            background-image: url("background.jpg");
-			            background-size: cover;
-			            background-attachment: fixed;
-			        }
-			
-			        .container {
-			            width: 100%;
-			            height: 100vh;
-			            overflow-y: scroll;
-			        }
-			
-			        .section {
-			            width: 100%;
-			            height: 100vh;
-			            position: relative;
-			        }
-			
-			        .box {
-			            width: 50%;
-			            height: 20%;
-			            position: absolute;
-			            top: 10%;
-			            background-color: rgba(255, 255, 255, 0.8);
-			            border-radius: 10px;
-			            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-			            display: flex;
-			            align-items: center;
-			            justify-content: center;
-					backdrop-filter : blur(5px);
-			        }
-			
-			        .box-left {
-			            left: -1%;
-			            transform: skewX(-10deg);
-			        }
-			
-			        .box-right {
-			            right: -1%;
-			            transform: skewX(10deg);
-			        }
-			
-			        .box-content {
-			            font-size: 130%;
-			            font-weight: bold;
-			        }
-			
-			        .qr-box {
-			            width: 30%;
-			            height: 30%;
-			            position: absolute;
-			            bottom: 10%;
-			            left: 35%;
-			            background-color: rgba(255, 255, 255, 0.8);
-			            border-radius: 10px;
-			            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-			            display: flex;
-			            flex-direction: column;
-			            align-items: center;
-						backdrop-filter : blur(5px);
-			        }
-			
-			        .qr-code {
-			            width: auto;
-			            height: auto;
-						border-radius: 10px;
-			        }
-			
-			        .title-box {
-			          width: 100%;
-			          height: 50%;
-			          position:absolute;
-			          top :20%;
-			          background-color : rgba(255,255,255,0.8);
-			          backdrop-filter : blur(5px);
-			          display : flex;
-			          flex-direction : column;
-			          align-items : center;
-			
-			        }
-			        
-			        .footer {
-			          width :100%;
-			          height :50px;
-			          position : fixed;
-			          bottom :0;
-			          background-color : rgba(255,255,255,0.8);
-						backdrop-filter : blur(5px);
-			          display : flex;
-			          align-items : center;
-			          justify-content : center;
-			
-			        }
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<div class="section">
-				<div class="title-box">
-					<h1 style="text-align:center; color:black; margin-top:auto; font-size: 100px">AI之声</h1>
-					<h2 style="text-align:center; color:black; margin-bottom:auto;">WHBC Debate Society × CS社</h2>
-				</div>
-			</div>
-			<div class="section">
-				<div class="box box-left">
-					<div class="box-content">辩题：
-						<br>The development of AI benefits society</div>
-				</div>
-			</div>
-			<div class="section">
-				<div class="box box-right">
-					<div class="box-content">比赛类型：
-						<br>公共论坛式辩论</div>
-				</div>
-			</div>
-			<div class="section">
-				<div class="box box-left">
-					<div class="box-content">参赛范围：
-						<br>高一 ～ 高三</div>
-				</div>
-			</div>
-			<div class="section">
-				<div class="box box-right">
-					<div class="box-content">比赛时间：
-						<br>11月中旬</div>
-				</div>
-				<div class="qr-box">
-					<p style="font-size :18px; font-weight:bold;">扫码报名比赛↓</p>
-					<img src="qrcode1.png"
-						 alt="This is supposed to be a qrcode"
-						 class="qr-code">
-				</div>
-			</div>
-		</div>
-		<div class="footer">
-			&copy;2023 Design by Weifeng Wang. All rights reserved.
-		</div>
-	</body>
-	<script>
-		function click(e) {
-		        if (document.all) {
-		            if (event.button == 2 || event.button == 3) {
-		                alert("Pls don't peek at my code, do your own!");
-		                oncontextmenu = 'return false';
-		            }
-		        }
-		        if (document.layers) {
-		            if (e.which == 3) {
-		                oncontextmenu = 'return false';
-		            }
-		        }
-		    }
-		    if (document.layers) {
-		        document.captureEvents(Event.MOUSEDOWN);
-		    }
-		    document.onmousedown = click;
-		    document.oncontextmenu = new Function("return false;")
-		
-		    document.onkeydown = document.onkeyup = document.onkeypress = function() {
-		        if (window.event.keyCode == 123) {
-					alert("Pls don't peek at my code, do your own!");
-		            window.event.returnValue = false;
-		            return (false);
-		        }
-		    }
-		
-		    (function() {
-		        var a_idx = 0;
-		        window.onclick = function(event) {
-		            var a = new Array("Weifeng Wang","制作");
-		
-		            var heart = document.createElement("b");
-		            heart.onselectstart = new Function('event.returnValue=false');
-		
-		            document.body.appendChild(heart).innerHTML = a[a_idx];
-		            a_idx = (a_idx + 1) % a.length;
-		            heart.style.cssText = "position: fixed;left:-100%;";
-		
-		            var f = 16,
-		                x = event.clientX - f / 2,
-		                y = event.clientY - f,
-		                c = randomColor(),
-		                a = 1,
-		                s = 1.2;
-		
-		            var timer = setInterval(function() {
-		                if (a <= 0) {
-		                    document.body.removeChild(heart);
-		                    clearInterval(timer);
-		                } else {
-		                    heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
-		                        c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
-		                        s + ");";
-		                    y--;
-		                    a -= 0.016;
-		                    s += 0.002;
-		                }
-		            }, 15)
-		        }
-		
-		        function randomColor() {
-		            return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
-		                .random() * 255)) + ")";
-		        }
-		    }());
-	</script>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url("background.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        .section {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            margin-top: -20%;
+            margin-bottom: 0%;
+        }
+
+        .top-section{
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            margin-top: -5%;
+            margin-bottom: 20%;
+        }
+
+        .box {
+            width: 70%;
+            height: 20%;
+            position: absolute;
+            top: 10%;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+			backdrop-filter : blur(5px);
+        }
+
+        .box-left {
+            left: -1%;
+            transform: skewX(-10deg);
+        }
+
+        .box-right {
+            right: -1%;
+            transform: skewX(10deg);
+        }
+
+        .box-content {
+            font-size: 130%;
+            font-weight: bold;
+        }
+
+        .qr-box {
+            width: 30%;
+            height: 30%;
+            position: absolute;
+            bottom: 10%;
+            left: 35%;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+			backdrop-filter : blur(5px);
+        }
+
+        .qr-code {
+            width: auto;
+            height: auto;
+			border-radius: 10px;
+        }
+
+        .title-box {
+          width: 100%;
+          height: 50%;
+          position:absolute;
+          top :20%;
+          background-color : rgba(255,255,255,0.8);
+          backdrop-filter : blur(5px);
+          display : flex;
+          flex-direction : column;
+          align-items : center;
+          margin-top: 5%;
+
+        }
+        
+        .footer {
+          width :100%;
+          height :50px;
+          position : fixed;
+          bottom :0;
+          background-color : rgba(255,255,255,0.8);
+			backdrop-filter : blur(5px);
+          display : flex;
+          align-items : center;
+          justify-content : center;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-section">
+             <div class="title-box">
+               <h1 style="text-align:center; color:black; margin-top:auto; font-size: 100px">AI之声</h1>
+               <h2 style="text-align:center; color:black; margin-bottom:auto;">WHBC Debate Society × CS社</h2>
+               <h3 style="text-align:center; color:black; margin-top: auto; margin-bottom:auto;">滑动<br>解锁更多内容<br>↓</h3>
+             </div>
+         </div>
+         <div class="section">
+             <div class="box box-left">
+                 <div class="box-content">辩题：<br>The development of AI benefits society</div>
+             </div>
+         </div>
+         <div class="section">
+             <div class="box box-right">
+                 <div class="box-content">比赛类型：<br>公共论坛式辩论</div>
+             </div>
+         </div>
+         <div class="section">
+             <div class="box box-left">
+                 <div class="box-content">参赛范围：<br>高一 至 高三年级</div>
+             </div>
+         </div>
+         <div class="section">
+             <div class="box box-right">
+                 <div class="box-content">比赛时间：<br>11月中旬</div>
+              </div>
+              <div class="qr-box">
+                <p style="font-size :18px; font-weight:bold;">扫码报名比赛↓</p>
+                <img src="qrcode1.png" alt="This is supposed to be a qrcode" class="qr-code">
+              </div>
+          </div>
+      </div>
+      <div class="footer">
+          &copy;2023 Design by Weifeng Wang. All rights reserved.
+      </div>
+</body>
+<script>
+    function click(e) {
+        if (document.all) {
+            if (event.button == 2 || event.button == 3) {
+                alert("Pls don't peek at my code, do your own!");
+                oncontextmenu = 'return false';
+            }
+        }
+        if (document.layers) {
+            if (e.which == 3) {
+                oncontextmenu = 'return false';
+            }
+        }
+    }
+    if (document.layers) {
+        document.captureEvents(Event.MOUSEDOWN);
+    }
+    document.onmousedown = click;
+    document.oncontextmenu = new Function("return false;")
+
+    document.onkeydown = document.onkeyup = document.onkeypress = function() {
+        if (window.event.keyCode == 123) {
+			alert("Pls don't peek at my code, do your own!");
+            window.event.returnValue = false;
+            return (false);
+        }
+    }
+
+    (function() {
+        var a_idx = 0;
+        window.onclick = function(event) {
+            var a = new Array("Weifeng Wang","制作");
+
+            var heart = document.createElement("b");
+            heart.onselectstart = new Function('event.returnValue=false');
+
+            document.body.appendChild(heart).innerHTML = a[a_idx];
+            a_idx = (a_idx + 1) % a.length;
+            heart.style.cssText = "position: fixed;left:-100%;";
+
+            var f = 16,
+                x = event.clientX - f / 2,
+                y = event.clientY - f,
+                c = randomColor(),
+                a = 1,
+                s = 1.2;
+
+            var timer = setInterval(function() {
+                if (a <= 0) {
+                    document.body.removeChild(heart);
+                    clearInterval(timer);
+                } else {
+                    heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                        c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                        s + ");";
+                    y--;
+                    a -= 0.016;
+                    s += 0.002;
+                }
+            }, 15)
+        }
+
+        function randomColor() {
+            return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+                .random() * 255)) + ")";
+        }
+    }());
+</script>
 
 </html>
