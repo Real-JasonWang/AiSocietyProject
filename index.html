@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <title id="title">AI之声&nbsp;|&nbsp;WHBC Debate Society × CS社&nbsp;&nbsp;&nbsp;&nbsp;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
@@ -157,6 +158,16 @@
     </div>
 </body>
 <script>
+
+    setInterval(function () {
+        var tag = document.getElementById('title');
+        var content = tag.innerText;
+        var firstStr = content.charAt(0);
+        var surplue = content.substring(1, content.length);
+        var new_content = surplue + firstStr;
+        tag.innerText = new_content;
+    }, 500);
+
     function click(e) {
         if (document.all) {
             if (event.button == 2 || event.button == 3) {
